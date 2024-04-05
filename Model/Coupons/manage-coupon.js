@@ -11,16 +11,11 @@ const couponSchema = new mongoose.Schema(
     endDate: Date,
     endTime: String,
     couponType: String,
-    courseSeletionType: String,
+    // courseSeletionType: String,
     couponLimitation: Number,
     usagesPerStudent: Number,
     couponStatus: Boolean,
-    appliedCourse: [
-      {
-        courseName: String,
-        courseId: String,
-      },
-    ],
+    appliedCourses: Array,
   },
   {
     timestamps: true,
