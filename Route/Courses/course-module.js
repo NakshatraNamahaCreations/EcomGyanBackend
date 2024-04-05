@@ -1,6 +1,5 @@
 const express = require("express");
 const router = express.Router();
-const multer = require("multer");
 const courseModulesController = require("../../Controller/Courses/course-module");
 
 router.post("/addmodules", courseModulesController.addModules);

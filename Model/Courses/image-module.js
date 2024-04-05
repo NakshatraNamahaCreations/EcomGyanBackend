@@ -4,6 +4,7 @@ const ImageSchema = new mongoose.Schema(
   {
     courseId: String,
     moduleId: String,
+    moduleName: String,
     name: String,
     image: String,
     description: String,

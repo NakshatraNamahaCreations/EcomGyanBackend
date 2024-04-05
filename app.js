@@ -29,6 +29,7 @@ const videoModuleRoutes = require("./Route/Courses/video-module");
 const imageModuleRoutes = require("./Route/Courses/image-module");
 const documentModuleRoutes = require("./Route/Courses/document-module");
 const zipModuleRoutes = require("./Route/Courses/zip-module");
+const couponRoutes = require("./Route/Coupons/manage-coupon");
 
 app.get("/", (req, res) => {
   res.send("Hey, Jimmy!...This is kiru from the earth 😁🤞🐶👋🤗");
@@ -42,6 +43,7 @@ app.use("/api/video-module", videoModuleRoutes);
 app.use("/api/image-module", imageModuleRoutes);
 app.use("/api/document-module", documentModuleRoutes);
 app.use("/api/zip-module", zipModuleRoutes);
+app.use("/api/coupon", couponRoutes);
 
 let port = process.env.PORT || 8081;
 app.listen(port, () => {

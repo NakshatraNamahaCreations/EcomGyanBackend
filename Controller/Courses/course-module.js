@@ -4,6 +4,7 @@ class CourseModule {
   async addModules(req, res) {
     try {
       const moduleList = req.body.moduleItems;
+      const addedModules = [];
       for (const lists of moduleList) {
         const { courseName, courseId, moduleTitle, description } = lists;
         const newModule = new courseModuleSchema({
@@ -13,12 +14,13 @@ class CourseModule {
           description,
         });
         await newModule.save();
-        res.status(200).json({
-          status: true,
-          success: "Modules Added",
-          data: newModule,
-        });
+        addedModules.push(newModule);
       }
+      res.status(200).json({
+        status: true,
+        success: "Modules Added",
+        data: addedModules,
+      });
     } catch (error) {
       res.status(500).json({ error: error.message });
     }

@@ -24,6 +24,26 @@ class Document {
     }
   }
 
+  async getAllDocuments(req, res) {
+    try {
+      const document = await DocumentSchema.find();
+      if (document.length === 0) {
+        return res.status(404).json({
+          status: 404,
+          message: "No documents found",
+        });
+      } else {
+        return res.status(200).json({
+          message: "success",
+          count: document.length,
+          data: document,
+        });
+      }
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  }
+
   async getDocumentByModuleId(req, res) {
     try {
       const document = await DocumentSchema.find({ moduleId: req.params.id });

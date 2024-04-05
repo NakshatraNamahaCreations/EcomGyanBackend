@@ -20,7 +20,7 @@ router.post("/addzipformodule", upload.single("zip"), zipController.addZip);
 //   "/addvideobymoduleid/:id",
 //   courseModulesController.addVideoByModuleId
 // );
-// router.get("/getallmodules", courseModulesController.getAllModules);
+router.get("/getallzip", zipController.getAllZip);
 router.get("/getzipbymoduleid/:id", zipController.getZipFileByModuleId);
 
 module.exports = router;

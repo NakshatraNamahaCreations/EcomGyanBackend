@@ -24,7 +24,7 @@ router.post(
 //   "/addvideobymoduleid/:id",
 //   courseModulesController.addVideoByModuleId
 // );
-// router.get("/getallmodules", courseModulesController.getAllModules);
+router.get("/getallimages", imageController.getAllImages);
 router.get("/getimagebymoduleid/:id", imageController.getImageByModuleId);
 
 module.exports = router;

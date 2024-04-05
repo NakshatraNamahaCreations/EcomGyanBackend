@@ -5,6 +5,7 @@ const freeMaterialSchema = new mongoose.Schema(
     materialDocuments: [
       {
         documentImage: String,
+        originalName: String,
       },
     ],
     materialType: String,

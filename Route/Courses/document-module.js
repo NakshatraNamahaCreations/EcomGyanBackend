@@ -24,7 +24,7 @@ router.post(
 //   "/addvideobymoduleid/:id",
 //   courseModulesController.addVideoByModuleId
 // );
-// router.get("/getallmodules", courseModulesController.getAllModules);
+router.get("/getalldocuments", documentController.getAllDocuments);
 router.get(
   "/getdocumentbymoduleid/:id",
   documentController.getDocumentByModuleId

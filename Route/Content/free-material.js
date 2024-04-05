@@ -28,6 +28,7 @@ router.get("/getallvideo", freeMaterialController.getAllVideo);
 //   upload.single("bannerImage"),
 //   bannerController.updateBannerById
 // );
-// router.delete("/deletebanner/:id", bannerController.deleteBannerById);
+router.delete("/deletedocuments/:id", freeMaterialController.deleteDocument);
+router.delete("/deletevideo/:id", freeMaterialController.deleteVideo);
 
 module.exports = router;

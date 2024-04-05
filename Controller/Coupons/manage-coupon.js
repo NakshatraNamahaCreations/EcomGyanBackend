@@ -1,7 +1,7 @@
 const couponSchema = require("../../Model/Coupons/manage-coupon");
 
-class CourseModule {
-  async addCourse(req, res) {
+class CouponModule {
+  async addCoupon(req, res) {
     try {
       const {
         offerName,
@@ -18,7 +18,7 @@ class CourseModule {
         usagesPerStudent,
       } = req.body;
 
-      const newCourse = new myCourseSchema({
+      const newCoupon = new couponSchema({
         offerName,
         couponCode,
         discountAmount,
@@ -33,30 +33,24 @@ class CourseModule {
         usagesPerStudent,
         couponStatus: false,
       });
-      if (!file) {
-        return res.status(500).json({
-          status: 500,
-          error: "Please select thumbnail image",
-        });
-      }
-      await newCourse.save();
+      await newCoupon.save();
       res.status(200).json({
         status: true,
-        success: "Course Added",
-        data: newCourse,
+        success: "Coupon Added",
+        data: newCoupon,
       });
     } catch (error) {
       res.status(500).json({ error: error.message });
     }
   }
 
-  async getAllModules(req, res) {
+  async getAllCoupon(req, res) {
     try {
-      const modulesData = await couponSchema.find();
+      const couponList = await couponSchema.find();
       res.status(200).json({
         status: true,
-        data: modulesData,
-        count: modulesData.length,
+        data: couponList,
+        count: couponList.length,
       });
     } catch (error) {
       console.log(error);
@@ -64,18 +58,18 @@ class CourseModule {
     }
   }
 
-  async getModuleById(req, res) {
+  async getCouponById(req, res) {
     try {
-      const modulesObj = await couponSchema.findById(req.params.id);
-      if (!modulesObj) {
-        return res.status(404).json({ message: "module not found" });
+      const couponObj = await couponSchema.findById(req.params.id);
+      if (!couponObj) {
+        return res.status(404).json({ message: "Coupon not found" });
       }
-      res.status(200).json(modulesObj);
+      res.status(200).json(couponObj);
     } catch (error) {
       res.status(500).json({ error: error.message });
     }
   }
 }
 
-const courseModulesController = new CourseModule();
-module.exports = courseModulesController;
+const CouponController = new CouponModule();
+module.exports = CouponController;

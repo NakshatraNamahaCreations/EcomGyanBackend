@@ -4,6 +4,7 @@ const ZipSchema = new mongoose.Schema(
   {
     courseId: String,
     moduleId: String,
+    moduleName: String,
     name: String,
     zip: String,
     description: String,

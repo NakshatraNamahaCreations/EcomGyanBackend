@@ -6,15 +6,21 @@ const couponSchema = new mongoose.Schema(
     couponCode: String,
     discountAmount: Number,
     minimumOrder: Number,
-    startDate: String,
+    startDate: Date,
     startTime: String,
-    endDate: String,
+    endDate: Date,
     endTime: String,
     couponType: String,
     courseSeletionType: String,
     couponLimitation: Number,
     usagesPerStudent: Number,
     couponStatus: Boolean,
+    appliedCourse: [
+      {
+        courseName: String,
+        courseId: String,
+      },
+    ],
   },
   {
     timestamps: true,
